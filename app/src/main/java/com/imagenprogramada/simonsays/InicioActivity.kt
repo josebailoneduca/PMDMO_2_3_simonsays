@@ -2,9 +2,7 @@ package com.imagenprogramada.simonsays
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import android.widget.RadioButton
 import android.widget.RadioGroup
 
 class InicioActivity : AppCompatActivity() {
@@ -27,11 +25,11 @@ class InicioActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnPlay).setOnClickListener({ v ->
-            iniciarJueto()
+            iniciarJuego()
         })
     }
 
-    private fun iniciarJueto() {
-        TODO("Not yet implemented")
+    private fun iniciarJuego() {
+        setContentView(R.layout.partida)
     }
 }
