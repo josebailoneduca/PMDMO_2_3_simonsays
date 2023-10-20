@@ -3,11 +3,12 @@
     <style name="Base.Theme.SimonSays" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-        <item name="colorPrimary">@color/grisOscuro</item>
-        <item name="colorOnPrimary">@color/grisClaro</item>
+        <item name="colorPrimary">@color/azulClaro</item>
+        <item name="colorOnPrimary">@color/azulOscuro</item>
         <item name="colorSecondary">@color/grisClaro</item>
         <item name="colorOnSecondary">@color/grisOscuro</item>
         <item name="android:statusBarColor">@color/grisOscuro</item>
         <item name="android:navigationBarColor">@color/grisOscuro</item>
+        <item name="android:textColor">@color/grisClaro</item>
     </style>
 </resources>

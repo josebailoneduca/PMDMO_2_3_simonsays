@@ -5,4 +5,7 @@
     <color name="grisOscuro">#2C2C2C</color>
     <color name="grisClaro">#B3B3B3</color>
     <color name="grisMuyOscuro">#1B1B1B</color>
+    <color name="azulClaro">#618FC8</color>
+    <color name="azulOscuro">#1C2733</color>
+    <color name="azulMuyOscuro">#11161C</color>
 </resources>

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Simon Says</string>
+    <string name="play">Play</string>
+    <string name="dificulty">Dificulty</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
 </resources>

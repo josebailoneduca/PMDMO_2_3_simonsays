@@ -4,38 +4,100 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grisMuyOscuro"
+    android:background="@color/azulMuyOscuro"
     tools:context=".InicioActivity">
 
     <TextView
-        android:id="@+id/lbSimonSays"
+        android:id="@+id/lbIntroSimonSays"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/betty_jane_family"
         android:text="Simon Says"
-        android:textColor="@color/grisClaro"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgIntroLogo"
         android:layout_width="231dp"
         android:layout_height="220dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbSimonSays"
-        app:srcCompat="@drawable/logofade" />
+        app:layout_constraintTop_toBottomOf="@+id/lbIntroSimonSays"
+        app:srcCompat="@drawable/logofade"
+        android:importantForAccessibility="no" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="Play"
+        android:text="@string/play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/dificultyRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbDificultyEasy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/easy"
+            android:textColor="@color/grisClaro" />
+
+        <RadioButton
+            android:id="@+id/rbDificultyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/medium"
+            android:textColor="@color/grisClaro"
+            tools:layout_editor_absoluteX="-55dp"
+            tools:layout_editor_absoluteY="547dp" />
+
+        <RadioButton
+            android:id="@+id/rbDificultyHard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hard"
+            android:textColor="@color/grisClaro" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-18dp"
+        android:fontFamily="@font/betty_jane"
+        android:text="@string/dificulty"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="298dp"
+        android:layout_height="23dp"
+        android:fontFamily="@font/betty_jane"
+        android:text="----------------------------------"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/dificultyRadioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
