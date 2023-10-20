@@ -39,29 +39,15 @@ class InicioActivity : AppCompatActivity() {
         val contenedor = findViewById<ConstraintLayout>(R.id.lyContenedor)
         //limpiar contenedor
         contenedor.removeAllViews()
-
         //agregar grid
         val grid:GridLayout=crearGrid(difi.filas,difi.columnas)
         contenedor.addView(grid)
-        val gParams = grid.layoutParams
-        gParams.width=GridLayout.LayoutParams.MATCH_PARENT
-        gParams.height=GridLayout.LayoutParams.MATCH_PARENT
-        grid.layoutParams=gParams
-
         //generar botones
         var i=0
         for (c in 0..< difi.columnas){
             for (f in 0..< difi.filas){
                 val btn:Button = crearBoton(""+i,c,f)
-                val params:GridLayout.LayoutParams=GridLayout.LayoutParams(GridLayout.spec(f, 1,1f), GridLayout.spec(c, 1,1f))
-                params.height=0
-                params.width=0
-                btn.layoutParams=params
-                btn.layoutParams=params;
-
-
-
-                grid.addView(btn,params)
+                grid.addView(btn)
             }
         }
     }
@@ -72,12 +58,20 @@ class InicioActivity : AppCompatActivity() {
         grid.columnCount=columnas
         grid.rowCount=filas
         grid.id=View.generateViewId()
+        val gParams = GridLayout.LayoutParams()
+        gParams.width=GridLayout.LayoutParams.MATCH_PARENT
+        gParams.height=GridLayout.LayoutParams.MATCH_PARENT
+        grid.layoutParams=gParams
         return grid
     }
 
     private fun crearBoton( etiqueta:String,columna:Int,fila:Int):Button{
         val btn:Button = Button(this)
         btn.id= View.generateViewId()
+        val params:GridLayout.LayoutParams=GridLayout.LayoutParams(GridLayout.spec(fila, 1,1f), GridLayout.spec(columna, 1,1f))
+        params.height=0
+        params.width=0
+        btn.layoutParams=params
         return btn
 
     }
