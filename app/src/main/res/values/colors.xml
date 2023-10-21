@@ -10,4 +10,21 @@
     <color name="azulMuyOscuro">#11161C</color>
     <color name="rojoError">#3A2323</color>
     <color name="verdeExito">#213A21</color>
+    <!-- BOTONES-->
+    <color name="amarillo">#FFD43A</color>
+    <color name="amarilloApagado">#5E4F17</color>
+    <color name="azul">#3AAAFF</color>
+    <color name="azulApagado">#17375E</color>
+    <color name="rojo">#FF0000</color>
+    <color name="rojoApagado">#5E1717</color>
+    <color name="verde">#2FFF00</color>
+    <color name="verdeApagado">#195E17</color>
+    <color name="violeta">#9123FF</color>
+    <color name="violetaApagado">#3B175E</color>
+    <color name="naranja">#FF5100</color>
+    <color name="naranjaApagado">#5E3017</color>
+    <color name="turquesa">#00FF90</color>
+    <color name="turquesaApagado">#175E39</color>
+    <color name="rosa">#FF63AC</color>
+    <color name="rosaApagado">#6C2B4D</color>
 </resources>

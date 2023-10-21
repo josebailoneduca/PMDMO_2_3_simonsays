@@ -1,5 +1,6 @@
 package com.imagenprogramada.simonsays
 
+import android.content.res.TypedArray
 import android.graphics.Color
 import android.os.Bundle
 import android.util.TypedValue
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.gridlayout.widget.GridLayout
 
@@ -39,9 +41,15 @@ class InicioActivity : AppCompatActivity() {
      */
     private lateinit var grid:GridLayout
 
+    /**
+     * Lista de colores a asignar
+     */
+    private lateinit var listaColores:TypedArray
+
     //METODOS DE CICLO DE VIDA**********************************************************************
      override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
+        listaColores=resources.obtainTypedArray(R.array.colores_botones)
          //inicializa la logica
          juego = Juego(this)
          //muestra el menu inicial
@@ -119,7 +127,7 @@ class InicioActivity : AppCompatActivity() {
         for (f in 0..<filas) {
             for (c in 0..<columnas) {
                 //generar boton
-                val btn: Button = crearBoton("" + (i + 1), c, f)
+                val btn: Button = crearBoton("" + (i + 1), c, f,i)
                 //agregarlo en la cuadricula
                 grid.addView(btn)
                 //listener del click al boton
@@ -139,18 +147,23 @@ class InicioActivity : AppCompatActivity() {
      * @param etiqueta Etiqueta de texto del boton
      * @param columna Columna para el parametro de layout
      * @param fila Fila para el parametro de layout
+     * @param i Indice del boton
      */
-    private fun crearBoton( etiqueta:String,columna:Int,fila:Int):Button{
+    private fun crearBoton( etiqueta:String,columna:Int,fila:Int,i:Int):Button{
         //creacion del boton y caracteristicas basicas
         val btn:Button = Button(this)
         btn.text=etiqueta
-        btn.setTextColor(ResourcesCompat.getColorStateList(resources,R.color.boton,null))
+        btn.setTextColor(ResourcesCompat.getColorStateList(resources,R.color.texto_boton,null))
         btn.id= View.generateViewId()
         btn.typeface= ResourcesCompat.getFont(this, R.font.betty_jane_family);
         btn.setTextSize(TypedValue.COMPLEX_UNIT_SP,40f)
-        btn.setBackgroundResource(R.drawable.boton)
 
-        //Definicion de los paramtros de layout
+        btn.setBackgroundResource(R.drawable.boton)
+        //color del boton
+        val idColor = listaColores.getResourceId(i.mod(listaColores.length()),0)
+        ViewCompat.setBackgroundTintList(btn, ResourcesCompat.getColorStateList(resources,idColor,null));
+
+        //Definicion de los parametros de layout
         // fila, columna y weight para los Gridlayout params
         val params:GridLayout.LayoutParams=GridLayout.LayoutParams(GridLayout.spec(fila, 1,1f), GridLayout.spec(columna, 1,1f))
         params.height=0
@@ -244,10 +257,7 @@ class InicioActivity : AppCompatActivity() {
      * @param encendido True si debe ser encendido. False si debe ser apagado
      */
     public fun iluminarBoton(i:Int,encendido:Boolean){
-        if (encendido)
-            arrayBotones[i]?.setBackgroundResource(R.drawable.boton_iluminado)
-        else
-            arrayBotones[i]?.setBackgroundResource(R.drawable.boton)
+            arrayBotones[i]?.setPressed(encendido)
     }
 
 
@@ -261,9 +271,15 @@ class InicioActivity : AppCompatActivity() {
     fun respuestaErronea(idIncorrecto: Int,idCorrecto:Int) {
         //desactivar los botones
         activarBotones(false)
-        //colorear cada boton segun si es el correcto o el incorrecto
-        arrayBotones[idIncorrecto]?.setBackgroundResource(R.drawable.boton_erroneo)
-        arrayBotones[idCorrecto]?.setBackgroundResource(R.drawable.boton_exito)
+        //poner botones a gris
+        arrayBotones.forEachIndexed { index, btn ->
+            if (index==idIncorrecto)
+               ViewCompat.setBackgroundTintList(btn!!, ResourcesCompat.getColorStateList(resources,R.color.boton_error,null));
+            else if (index==idCorrecto)
+                ViewCompat.setBackgroundTintList(btn!!, ResourcesCompat.getColorStateList(resources,R.color.boton_acierto,null));
+            else
+                ViewCompat.setBackgroundTintList(btn!!, ResourcesCompat.getColorStateList(resources,R.color.boton_gris,null));
+        }
 
         //mostrar el boton de volver al menu inicial
         findViewById<Button>(R.id.btnMenu).isVisible=true
@@ -288,7 +304,6 @@ class InicioActivity : AppCompatActivity() {
             grid.setBackgroundColor(resources.getColor(R.color.verdeExito,null))
         else
             grid.setBackgroundColor(Color.TRANSPARENT)
-
     }
 
     /**

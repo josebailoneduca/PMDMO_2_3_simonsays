@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="colores_botones">
+        <item>@color/boton_azul</item>
+        <item>@color/boton_amarillo</item>
+        <item>@color/boton_rojo</item>
+        <item>@color/boton_verde</item>
+        <item>@color/boton_naranja</item>
+        <item>@color/boton_violeta</item>
+        <item>@color/boton_rosa</item>
+        <item>@color/boton_turquesa</item>
+    </integer-array>
+</resources>
