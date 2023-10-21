@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Simon Says</string>
+    <string name="play">Jugar</string>
+    <string name="dificulty">Dificultad</string>
+    <string name="easy">Fácil</string>
+    <string name="medium">Medio</string>
+    <string name="hard">Difícil</string>
+    <string name="level">Nivel</string>
+    <string name="menu">Menú</string>
+</resources>

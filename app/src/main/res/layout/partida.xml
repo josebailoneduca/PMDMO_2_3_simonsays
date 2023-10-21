@@ -8,6 +8,8 @@
     android:background="@color/azulMuyOscuro"
     tools:context=".InicioActivity">
 
+
+
     <LinearLayout
         android:id="@+id/lyCabecera"
         android:layout_width="0dp"
@@ -23,7 +25,7 @@
             android:id="@+id/lbNivel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
             android:fontFamily="@font/betty_jane"
             android:text="@string/level"
             android:textSize="24sp" />
@@ -50,4 +52,13 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <Button
+        android:id="@+id/btnMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

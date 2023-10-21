@@ -8,4 +8,6 @@
     <color name="azulClaro">#618FC8</color>
     <color name="azulOscuro">#1C2733</color>
     <color name="azulMuyOscuro">#11161C</color>
+    <color name="rojoError">#3A2323</color>
+    <color name="verdeExito">#213A21</color>
 </resources>
