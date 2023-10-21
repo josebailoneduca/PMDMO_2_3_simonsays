@@ -7,7 +7,7 @@ package com.imagenprogramada.simonsays
  * @param columnas Columnas de cuadricula para el nivel de dificultad
  * @param velocidad Establece la velocidad para el nivel de dificultad (ver)
  * @param nombre Nombre del nivel de dificultad
- *
+ * @param orden Indice de orden para los menus
  * @see com.imagenprogramada.simonsays.Juego.comenzarSiguienteNivel  Para ver el calculo de la aplicacion de velocidad
  *
  * @author Jose Javier Bailon Ortiz

@@ -9,5 +9,5 @@
     <string name="level">Nivel</string>
     <string name="menu">Volver al menú</string>
     <string name="x">X</string>
-    <string name="ok">OK</string>
+    <string name="ok"></string>
 </resources>
