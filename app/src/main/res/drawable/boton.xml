@@ -38,4 +38,20 @@
             <solid android:color="@color/grisMedio" />
         </shape>
     </item>
+
+    <!--RECORTE DEL BRILLO-->
+    <item
+        android:bottom="6dp"
+        android:left="6dp"
+        android:right="6dp"
+        android:top="6dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp" />
+            <gradient
+                android:angle="45"
+                android:centerColor="@color/grisMedio"
+                android:endColor="#929292"
+                android:startColor="@color/grisMedio"
+                android:type="linear" />        </shape>
+    </item>
 </layer-list>
