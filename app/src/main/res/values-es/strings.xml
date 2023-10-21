@@ -2,10 +2,12 @@
     <string name="app_name">Simon Says</string>
     <string name="play">Jugar</string>
     <string name="dificulty">Dificultad</string>
-    <string name="easy">¿Puedo jugar, papaá?</string>
+    <string name="easy">¿Puedo jugar, papá?</string>
     <string name="medium">No me hagas pupa</string>
     <string name="hard">¡A por ellos!</string>
     <string name="insane">Soy La Parca en persona</string>
     <string name="level">Nivel</string>
-    <string name="menu">Menú</string>
+    <string name="menu">Volver al menú</string>
+    <string name="x">X</string>
+    <string name="ok">OK</string>
 </resources>

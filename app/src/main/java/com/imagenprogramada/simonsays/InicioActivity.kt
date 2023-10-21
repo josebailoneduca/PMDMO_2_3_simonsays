@@ -65,10 +65,10 @@ class InicioActivity : AppCompatActivity() {
         setContentView(R.layout.menu_inicial)
 
         //gestiona el boton de inicio de partida
-        findViewById<Button>(R.id.btnPlay).setOnClickListener { v ->
+        findViewById<Button>(R.id.btnPlay).setOnClickListener {
             //recoger el valor de dificultad seleccionado
-            val id = findViewById<RadioGroup>(R.id.dificultyRadioGroup).checkedRadioButtonId
-            val dificultad: EDificultad = when (id) {
+            val idRadioButtonSeleccionado = findViewById<RadioGroup>(R.id.dificultyRadioGroup).checkedRadioButtonId
+            val dificultad: EDificultad = when (idRadioButtonSeleccionado) {
                 R.id.rbDificultyEasy -> EDificultad.EASY;
                 R.id.rbDificultyMedium -> EDificultad.MEDIUM;
                 R.id.rbDificultyHard -> EDificultad.HARD;
@@ -119,8 +119,6 @@ class InicioActivity : AppCompatActivity() {
         val columnas= grid.columnCount
         //generar botones
         arrayBotones = arrayOfNulls(filas * columnas)
-        val nullArray: Array<Int?> = arrayOfNulls(3)
-
         //bucle de filas y columnas para ir generando los botones
         //y colocandolos en la cuadricula
         var i = 0
@@ -131,9 +129,9 @@ class InicioActivity : AppCompatActivity() {
                 //agregarlo en la cuadricula
                 grid.addView(btn)
                 //listener del click al boton
-                btn.setOnClickListener(View.OnClickListener { v ->
+                btn.setOnClickListener { v ->
                     onBotonClicked(v)
-                })
+                }
                 //almacenamiento del boton en el array de botones
                 arrayBotones[i] = btn
                 i++
@@ -194,7 +192,14 @@ class InicioActivity : AppCompatActivity() {
         }
     }
 
-
+    /**
+     * Activa/desactiva los botones de la cuacricula haciendo que el usuario pueda o no pueda clicarlos
+     *
+     * @param activado True para habilitar, False para deshabilitar
+     */
+    private fun activarBotones(activado:Boolean){
+        arrayBotones.forEach { b -> b?.isEnabled=activado }
+    }
 
 
     //METODOS PUBLICOS*****************************************************************************
@@ -209,7 +214,7 @@ class InicioActivity : AppCompatActivity() {
         setContentView(R.layout.partida)
         //configura el boton de volver al menu inicial
         val btnMenu=findViewById<Button>(R.id.btnMenu)
-        btnMenu.setOnClickListener {v ->
+        btnMenu.setOnClickListener {
             menuInicial()
         }
         //oculta el boton de volver al menu (se mostrara cuando termine la partida)
@@ -240,14 +245,7 @@ class InicioActivity : AppCompatActivity() {
     }
 
 
-    /**
-     * Activa/desactiva los botones de la cuacricula haciendo que el usuario pueda o no pueda clicarlos
-     *
-     * @param activado True para habilitar, False para deshabilitar
-     */
-    public fun activarBotones(activado:Boolean){
-        arrayBotones.forEach { b -> b?.isEnabled=activado }
-    }
+
 
 
     /**
@@ -257,7 +255,7 @@ class InicioActivity : AppCompatActivity() {
      * @param encendido True si debe ser encendido. False si debe ser apagado
      */
     public fun iluminarBoton(i:Int,encendido:Boolean){
-            arrayBotones[i]?.setPressed(encendido)
+        arrayBotones[i]?.isPressed = encendido
     }
 
 
@@ -271,14 +269,19 @@ class InicioActivity : AppCompatActivity() {
     fun respuestaErronea(idIncorrecto: Int,idCorrecto:Int) {
         //desactivar los botones
         activarBotones(false)
-        //poner botones a gris
+        //poner botones a rojo si es el incorrecto, verde si es el correcto y gris si no es ninungo de ellos
         arrayBotones.forEachIndexed { index, btn ->
-            if (index==idIncorrecto)
-               ViewCompat.setBackgroundTintList(btn!!, ResourcesCompat.getColorStateList(resources,R.color.boton_error,null));
-            else if (index==idCorrecto)
-                ViewCompat.setBackgroundTintList(btn!!, ResourcesCompat.getColorStateList(resources,R.color.boton_acierto,null));
-            else
-                ViewCompat.setBackgroundTintList(btn!!, ResourcesCompat.getColorStateList(resources,R.color.boton_gris,null));
+            when (index) {
+                idIncorrecto -> {
+                    ViewCompat.setBackgroundTintList(btn!!, ResourcesCompat.getColorStateList(resources,R.color.boton_error,null))
+                    btn!!.setText(R.string.x)
+                }
+                idCorrecto -> {
+                    ViewCompat.setBackgroundTintList(btn!!, ResourcesCompat.getColorStateList(resources,R.color.boton_acierto,null))
+                    btn!!.setText(R.string.ok)
+                }
+                else -> ViewCompat.setBackgroundTintList(btn!!, ResourcesCompat.getColorStateList(resources,R.color.boton_gris,null))
+            };
         }
 
         //mostrar el boton de volver al menu inicial
@@ -296,7 +299,7 @@ class InicioActivity : AppCompatActivity() {
 
     /**
      * Pone la GUI en estado de exito pintando el fondo de verde
-     * @param True si debe ser pintada de verde, False si debe volver al estado original
+     * @param activado True si debe ser pintada de verde, False si debe volver al estado original
      */
     fun exito(activado:Boolean) {
 
@@ -322,6 +325,5 @@ class InicioActivity : AppCompatActivity() {
         activarBotones(true);
     }
 
-
-}
+}//fin de clase
 

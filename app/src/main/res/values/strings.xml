@@ -7,5 +7,7 @@
     <string name="hard">Bring \'em on!</string>
     <string name="insane">I am Death incarnate!</string>
     <string name="level">Level</string>
-    <string name="menu">Menu</string>
+    <string name="menu">Return to menu</string>
+    <string name="x">X</string>
+    <string name="ok">OK</string>
 </resources>
