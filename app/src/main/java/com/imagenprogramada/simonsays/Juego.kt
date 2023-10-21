@@ -26,7 +26,7 @@ class Juego(val vista: InicioActivity) {
     public fun siguienteNivel() {
         nivel++;
         this.respuestas=ArrayList<Int>()
-        val espera =((1000L/dificultad.velocidad)-(100*(nivel/2))).toLong().coerceAtLeast(150)
+        val espera =((600L/dificultad.velocidad)-(100*(nivel/2))).toLong().coerceAtLeast(150)
         val activo = (300L+(200/dificultad.velocidad)-(50*(nivel/2))).toLong().coerceAtLeast(200)
         val pantalla = Pantalla(this.nivel,siguienteSecuencia(),espera,activo)
         vista.iniciarNivel(pantalla)

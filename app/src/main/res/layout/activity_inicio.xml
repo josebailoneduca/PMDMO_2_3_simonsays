@@ -72,6 +72,12 @@
             android:layout_height="wrap_content"
             android:text="@string/hard"
             android:textColor="@color/grisClaro" />
+        <RadioButton
+            android:id="@+id/rbDificultyInsane"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/insane"
+            android:textColor="@color/grisClaro" />
     </RadioGroup>
 
     <TextView

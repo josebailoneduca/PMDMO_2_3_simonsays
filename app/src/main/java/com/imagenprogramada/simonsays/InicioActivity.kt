@@ -43,6 +43,7 @@ class InicioActivity : AppCompatActivity() {
                 R.id.rbDificultyEasy -> EDificultad.EASY;
                 R.id.rbDificultyMedium -> EDificultad.MEDIUM;
                 R.id.rbDificultyHard -> EDificultad.HARD;
+                R.id.rbDificultyInsane -> EDificultad.INSANE;
                 else -> EDificultad.EASY
 
             }

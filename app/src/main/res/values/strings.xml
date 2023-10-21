@@ -2,9 +2,10 @@
     <string name="app_name">Simon Says</string>
     <string name="play">Play</string>
     <string name="dificulty">Dificulty</string>
-    <string name="easy">Easy</string>
-    <string name="medium">Medium</string>
-    <string name="hard">Hard</string>
+    <string name="easy">Can I play, Daddy?</string>
+    <string name="medium">Don\'t hurt me</string>
+    <string name="hard">Bring \'em on!</string>
+    <string name="insane">I am Death incarnate!</string>
     <string name="level">Level</string>
     <string name="menu">Menu</string>
 </resources>
